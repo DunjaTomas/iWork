@@ -1,4 +1,4 @@
-// Dies ist unsere erste Klasse 
+// Dies ist unsere erste Klasse Benutzer
 
 public class Benutzer {
 
