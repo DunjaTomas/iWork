@@ -1,15 +1,8 @@
 package de.hdm.iWork.server.db;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
+import java.sql.*;
+import java.util.*;
 
-import de.hdm.gruppe7.partnerboerse.server.db.DBConnection;
-import de.hdm.gruppe7.partnerboerse.shared.bo.Info;
 import de.hdm.iWork.shared.bo.Eigenschaft;
 import de.hdm.iWork.shared.bo.Inhalt;
 import de.hdm.iWork.shared.bo.Stellenbeschreibung;
@@ -39,7 +32,7 @@ public class StellenbeschreibungMapper {
 	}
 
 	// Neue Stellenbeschreibung erstellen
-	public void anlegenStellenbeschreibung(Stellenbeschreibung stellenbeschreibung) {
+	public Stellenbeschreibung anlegenStellenbeschreibung(Stellenbeschreibung stellenbeschreibung) {
 		Connection con = DBConnection.connection();
 
 		try {
@@ -69,10 +62,11 @@ public class StellenbeschreibungMapper {
 		catch (SQLException e2) {
 			e2.printStackTrace();
 		}
+		return stellenbeschreibung;
 	}
 
 	// Bestehende Stellenbeschreibung verändern
-	public void updateStellenbeschreibung(Stellenbeschreibung stellenbeschreibung) {
+	public Stellenbeschreibung updateStellenbeschreibung(Stellenbeschreibung stellenbeschreibung) {
 
 		Connection con = DBConnection.connection();
 
@@ -88,6 +82,8 @@ public class StellenbeschreibungMapper {
 		catch (SQLException e2) {
 			e2.printStackTrace();
 		}
+
+		return stellenbeschreibung;
 	}
 
 	// Bestehende Stellenbeschreibung löschen
@@ -163,7 +159,6 @@ public class StellenbeschreibungMapper {
 		return result;
 	}
 
-	
 	// Ausgabe aller Stellenbeschreibungen zu einer bestimmten ProfilId
 	public Vector<Stellenbeschreibung> getStellenbeschreibungByProfilId(int profilId) {
 
