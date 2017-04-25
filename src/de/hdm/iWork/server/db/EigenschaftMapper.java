@@ -9,6 +9,10 @@ import de.hdm.iWork.shared.bo.*;
 
 public class EigenschaftMapper {
 	
+	/*
+	 * statische Variable
+	 */
+	
 	private static EigenschaftMapper eigenschaftMapper=null;
 	
 	/**
