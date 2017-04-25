@@ -1,6 +1,6 @@
 package de.hdm.iWork.shared.bo;
 
-public class Inhalt extends BudinessObject {
+public class Inhalt extends BusinessObject {
 	
 	private static final long serialVersionUID = 1L;
 	

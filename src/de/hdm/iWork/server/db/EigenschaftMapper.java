@@ -1,10 +1,6 @@
 package de.hdm.iWork.server.db;
 
 import java.sql.*;
-
-
-import com.google.cloud.sql.jdbc.Connection;
-
 import de.hdm.iWork.shared.bo.*;
 
 public class EigenschaftMapper {
@@ -104,12 +100,12 @@ public class EigenschaftMapper {
 	}
 	
 	public Eigenschaft getEigenschaftbyId(int eigenschaftId){
-		Connection con = DBConnection.connection();
+		java.sql.Connection con = DBConnection.connection();
 		
 		try{
 			Statement stmt = con.createStatement();
 			
-			ResultSet rs = stmt.executeUpdate("SELECT eigenschaftId, bezeichnung FROM eigenschaft "
+			ResultSet rs = stmt.executeQuery("SELECT eigenschaftId, bezeichnung FROM eigenschaft "
 					+ "WHERE eigenschaftId=" + eigenschaftId);
 			
 			if(rs.next()){
