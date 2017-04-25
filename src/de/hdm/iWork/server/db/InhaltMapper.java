@@ -30,7 +30,7 @@ public class InhaltMapper {
 	 */
 	
 	public Inhalt anlegenInhalt(Inhalt inhalt){
-		Connection con = SQLConnection.connection();
+		Connection con = DBConnection.connection();
 		
 		try{
 			Statement stmt = con.createStatement();
@@ -70,6 +70,8 @@ public class InhaltMapper {
 		catch(SQLException e2){
 			e2.printStackTrace();
 		}
+		
+		return inhalt;
 		
 	}
 	
