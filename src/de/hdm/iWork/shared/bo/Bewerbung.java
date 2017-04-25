@@ -1,5 +1,5 @@
 package de.hdm.iWork.shared.bo;
-
+ //Klasse Bewerbung - Kommentare kommen noch
 public class Bewerbung {
 
 		private int stellenId;
