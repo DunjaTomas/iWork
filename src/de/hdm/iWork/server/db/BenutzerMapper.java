@@ -58,6 +58,41 @@ public class BenutzerMapper {
 		return b;
 	}
 	
+	 /**
+	   * Veraendern eines Benutzerobjektes
+	   */
+	  public Benutzer update(Benutzer b) {
+	    Connection con = DBConnection.connection();
+
+	    try {
+	      Statement stmt = con.createStatement();
+
+	      stmt.executeUpdate("UPDATE benutzer " + "SET email=\""
+	          + b.getEmail() + "\" " + "WHERE id=" + b.getId());
+
+	    }
+	    catch (SQLException e) {
+	      e.printStackTrace();
+	    }
+
+	    return b;
+	  }
+
+	  /**
+	   * Loeschen der Daten eines Benutzer-Objektes aus der Datenbank
+	   */
+	  public void delete(Benutzer b) {
+	    Connection con = DBConnection.connection();
+
+	    try {
+	      Statement stmt = con.createStatement();
+
+	      stmt.executeUpdate("DELETE FROM benutzer " + "WHERE id=" + b.getId());
+	    }
+	    catch (SQLException e) {
+	      e.printStackTrace();
+	    }
+	  }
 	
 	
 }
