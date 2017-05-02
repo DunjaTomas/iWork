@@ -9,6 +9,7 @@ import java.io.Serializable;
   */
 public abstract class BusinessObject implements Serializable {
 
+
 		private static final long SerialVersionUID = 1L;
 		
 		/**
@@ -65,4 +66,5 @@ public abstract class BusinessObject implements Serializable {
 			     */
 			    return false;
 			  }
+
 }
