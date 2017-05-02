@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.Vector;
 
 import de.hdm.iWork.shared.bo.Bewerbung;
+import de.hdm.iWork.shared.bo.Profil;
 import de.hdm.iWork.shared.bo.Stellenbeschreibung;
 
 /**
@@ -37,7 +38,7 @@ public class BewerbungMapper {
 		try {
 			Statement stmt = con.createStatement();
 
-			stmt.executeUpdate("INSERT INTO bewerbung (stellenId,profilId) " + "VALUES (" + bewerbung.getStellenId()
+			stmt.executeUpdate("INSERT INTO bewerbung (stellenid,profilid) " + "VALUES (" + bewerbung.getStellenId()
 					+ "," + bewerbung.getProfilId() + ")");
 		}
 
@@ -55,8 +56,8 @@ public class BewerbungMapper {
 
 			Statement stmt = con.createStatement();
 
-			stmt.executeUpdate("UPDATE bewerbung " + "SET stellenId=\"" + bewerbung.getStellenId() + "\" "
-					+ "WHERE stellenId=" + bewerbung.getStellenId() + "AND WHERE profilId=" + bewerbung.getProfilId());
+			stmt.executeUpdate("UPDATE bewerbung " + "SET stellenid=\"" + bewerbung.getStellenId() + "\" "
+					+ "WHERE stellenid=" + bewerbung.getStellenId() + "AND WHERE profilid=" + bewerbung.getProfilId());
 		}
 
 		catch (SQLException e2) {
@@ -72,8 +73,8 @@ public class BewerbungMapper {
 		try {
 			Statement stmt = con.createStatement();
 
-			stmt.executeUpdate("DELETE FROM bewerbung " + "WHERE stellenId" + bewerbung.getStellenId()
-					+ "AND WHERE profilId=" + bewerbung.getProfilId());
+			stmt.executeUpdate("DELETE FROM bewerbung " + "WHERE stellenid" + bewerbung.getStellenId()
+					+ "AND WHERE profilid=" + bewerbung.getProfilId());
 		}
 
 		catch (SQLException e2) {
@@ -82,7 +83,7 @@ public class BewerbungMapper {
 	}
 
 	// Ausgabe aller Bewerbungen zu einer bestimmten StellenId
-	public Vector<Bewerbung> getBewerbungByStellenId(Stellenbeschreibung stellenId, Profil profilId) {
+	public Vector<Bewerbung> getBewerbungByStellenId(Stellenbeschreibung stellenId, Profil besitzerId) {
 		Connection con = DBConnection.connection();
 
 		Vector<Bewerbung> result = new Vector<Bewerbung>();
@@ -91,12 +92,12 @@ public class BewerbungMapper {
 			Statement stmt = con.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT stellenId, profilId FROM bewerbung " + "WHERE stellenId=" + stellenId);
+					.executeQuery("SELECT stellenid, profilid FROM bewerbung " + "WHERE stellenid=" + stellenId);
 
 			if (rs.next()) {
 				Bewerbung bewerbung = new Bewerbung();
-				bewerbung.setStellenId(rs.getInt("stellenId"));
-				bewerbung.setProfilId(rs.getInt("profilId"));
+				bewerbung.setStellenId(rs.getInt("stellenid"));
+				bewerbung.setProfilId(rs.getInt("profilid"));
 
 				result.add(bewerbung);
 				return result;
@@ -110,7 +111,7 @@ public class BewerbungMapper {
 	}
 
 	// Ausgabe aller Bewerbungen zu einer bestimmten ProfilId
-	public Vector<Bewerbung> getBewerbungByProfilId(Stellenbeschreibung stellenId, Profil profilId) {
+	public Vector<Bewerbung> getBewerbungByProfilId(Stellenbeschreibung stellenId, Profil besitzerId) {
 		Connection con = DBConnection.connection();
 
 		Vector<Bewerbung> result = new Vector<Bewerbung>();
@@ -119,12 +120,12 @@ public class BewerbungMapper {
 			Statement stmt = con.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT stellenId, profilId FROM bewerbung " + "WHERE profilId=" + profilId);
+					.executeQuery("SELECT stellenid, profilid FROM bewerbung " + "WHERE profilid=" + besitzerId);
 
 			if (rs.next()) {
 				Bewerbung bewerbung = new Bewerbung();
-				bewerbung.setStellenId(rs.getInt("stellenId"));
-				bewerbung.setProfilId(rs.getInt("profilId"));
+				bewerbung.setStellenId(rs.getInt("stellenid"));
+				bewerbung.setProfilId(rs.getInt("profilid"));
 
 				result.add(bewerbung);
 				return result;
