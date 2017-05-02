@@ -9,8 +9,8 @@ public class DBConnection {
 
 	private static Connection con = null;
 
-	private static String googleUrl = "jdbc:google:mysql://prof-thies.de:thies-iWork:thies-bankproject/iWork?user=demo&password=demo";
-	private static String localUrl = "jdbc:mysql://127.0.0.1:3306/bankproject?user=demo&password=demo";
+	private static String googleUrl = "";
+	private static String localUrl = "jdbc:mysql://127.0.0.1:3306/iWork?user=root&password=";
 
 public static Connection connection(){
 	
