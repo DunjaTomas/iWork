@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.Vector;
 
 import de.hdm.iWork.shared.bo.Bewerbung;
-import de.hdm.iWork.shared.bo.Stellenbeschreibung;
+import de.hdm.iWork.shared.bo.Stellenausschreibung;
 
 /**
  * Diese Klasse stellt die Verbindung zwischen der Klasse Bewerbung und der
@@ -83,7 +83,7 @@ public class BewerbungMapper {
 	}
 
 	// Ausgabe aller Bewerbungen zu einer bestimmten StellenId
-	public Vector<Bewerbung> getBewerbungByStellenId(Stellenbeschreibung stellenId) {
+	public Vector<Bewerbung> getBewerbungByStellenId(Stellenausschreibung stellenId) {
 		Connection con = DBConnection.connection();
 
 		Vector<Bewerbung> result = new Vector<Bewerbung>();

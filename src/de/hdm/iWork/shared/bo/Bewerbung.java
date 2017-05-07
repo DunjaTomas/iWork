@@ -11,7 +11,7 @@ public class Bewerbung extends BusinessObject {
 	// Das Attribut serialVersionUID wird von der Oberklasse BusinessObject vererbt
 	private static final long serialVersionUID = 1L;
 
-	//Attribute einer Stellenbeschreibung
+	//Attribute einer Stellenausschreibung
 	private int stellenId = 0;
 	private int benutzerId = 0;
 
