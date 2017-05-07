@@ -12,8 +12,8 @@ public class Bewerbung extends BusinessObject {
 	private static final long serialVersionUID = 1L;
 
 	//Attribute einer Stellenbeschreibung
-	private int stellenId;
-	private int profilId;
+	private int stellenId = 0;
+	private int benutzerId = 0;
 
 	//No-Argument Constructor
 	public Bewerbung() {
@@ -29,12 +29,12 @@ public class Bewerbung extends BusinessObject {
 		this.stellenId = stellenId;
 	}
 
-	public int getProfilId() {
-		return this.profilId;
+	public int getBenutzerId() {
+		return this.benutzerId;
 	}
 
-	public void setProfilId(int profilId) {
-		this.profilId = profilId;
+	public void setBenutzerId(int profilId) {
+		this.benutzerId = profilId;
 	}
 
 }

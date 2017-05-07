@@ -3,8 +3,6 @@ package de.hdm.iWork.server.db;
 import java.sql.*;
 import java.util.*;
 
-import de.hdm.iWork.shared.bo.Eigenschaft;
-import de.hdm.iWork.shared.bo.Inhalt;
 import de.hdm.iWork.shared.bo.Stellenbeschreibung;
 
 /**
@@ -37,7 +35,7 @@ public class StellenbeschreibungMapper {
 
 		try {
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT MAX(stellenId) AS maxid " + "FROM stellenbeschreibung ");
+			ResultSet rs = stmt.executeQuery("SELECT MAX(stellenid) AS maxid " + "FROM stellenausschreibung ");
 
 			if (rs.next()) {
 
@@ -52,7 +50,7 @@ public class StellenbeschreibungMapper {
 				/*
 				 * Einfuegeoperation
 				 */
-				stmt.executeUpdate("INSERT INTO stellenbeschreibung (stellenId,bezeichnung,beschreibungstext,frist) "
+				stmt.executeUpdate("INSERT INTO stellenausschreibung (stellenid,bezeichnung,beschreibung,frist) "
 						+ "VALUES (" + stellenbeschreibung.getStellenId() + "," + stellenbeschreibung.getBezeichnung()
 						+ "," + stellenbeschreibung.getBeschreibungstext() + "," + stellenbeschreibung.getFrist()
 						+ ")");
@@ -73,10 +71,10 @@ public class StellenbeschreibungMapper {
 		try {
 			Statement stmt = con.createStatement();
 
-			stmt.executeUpdate("UPDATE stellenbeschreibung " + "SET bezeichnung\""
-					+ stellenbeschreibung.getBezeichnung() + "\", " + " beschreibungstext=\""
+			stmt.executeUpdate("UPDATE stellenausschreibung " + "SET bezeichnung\""
+					+ stellenbeschreibung.getBezeichnung() + "\", " + " beschreibung=\""
 					+ stellenbeschreibung.getBeschreibungstext() + "\", " + " frist=\"" + stellenbeschreibung.getFrist()
-					+ "\" " + "WHERE stellenId=" + stellenbeschreibung.getStellenId());
+					+ "\" " + "WHERE stellenid=" + stellenbeschreibung.getStellenId());
 		}
 
 		catch (SQLException e2) {
@@ -95,7 +93,7 @@ public class StellenbeschreibungMapper {
 			Statement stmt = con.createStatement();
 
 			stmt.executeUpdate(
-					"DELETE FROM stellenbeschreibung " + "WHERE stellenId=" + stellenbeschreibung.getStellenId());
+					"DELETE FROM stellenausschreibung " + "WHERE stellenid=" + stellenbeschreibung.getStellenId());
 		}
 
 		catch (SQLException e2) {
@@ -111,14 +109,14 @@ public class StellenbeschreibungMapper {
 			Statement stmt = con.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT stellenId, bezeichnung, bezeichnungstext, frist FROM stellenbeschreibung "
-							+ "WHERE stellenId=" + stellenId);
+					.executeQuery("SELECT stellenid, bezeichnung, bezeichnung, frist FROM stellenausschreibung "
+							+ "WHERE stellenid=" + stellenId);
 
 			if (rs.next()) {
 				Stellenbeschreibung stellenbeschreibung = new Stellenbeschreibung();
-				stellenbeschreibung.setStellenId(rs.getInt("stellenId"));
+				stellenbeschreibung.setStellenId(rs.getInt("stellenid"));
 				stellenbeschreibung.setBezeichnug(rs.getString("bezeichnung"));
-				stellenbeschreibung.setBeschreibungstext(rs.getString("beschreibungstext"));
+				stellenbeschreibung.setBeschreibungstext(rs.getString("beschreibung"));
 				stellenbeschreibung.setFrist(rs.getDate("frist"));
 				return stellenbeschreibung;
 			}
@@ -139,14 +137,14 @@ public class StellenbeschreibungMapper {
 		try {
 			Statement stmt = con.createStatement();
 
-			ResultSet rs = stmt.executeQuery("SELECT * FROM stellenbeschreibung");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM stellenausschreibung");
 
 			while (rs.next()) {
 				Stellenbeschreibung stellenbeschreibung = new Stellenbeschreibung();
 
-				stellenbeschreibung.setStellenId(rs.getInt("stellenId"));
+				stellenbeschreibung.setStellenId(rs.getInt("stellenid"));
 				stellenbeschreibung.setBezeichnug(rs.getString("bezeichnung"));
-				stellenbeschreibung.setBeschreibungstext(rs.getString("beschreibungstext"));
+				stellenbeschreibung.setBeschreibungstext(rs.getString("beschreibung"));
 				stellenbeschreibung.setFrist(rs.getDate("frist"));
 
 				result.add(stellenbeschreibung);
@@ -170,14 +168,14 @@ public class StellenbeschreibungMapper {
 			Statement stmt = con.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT stellenId, bezeichnung, bezeichnungstext, frist FROM stellenbeschreibung "
-							+ "WHERE profilId=" + profilId);
+					.executeQuery("SELECT stellenid, bezeichnung, bezeichnung, frist FROM stellenausschreibung "
+							+ "WHERE profilid=" + profilId);
 
 			if (rs.next()) {
 				Stellenbeschreibung stellenbeschreibung = new Stellenbeschreibung();
-				stellenbeschreibung.setStellenId(rs.getInt("stellenId"));
+				stellenbeschreibung.setStellenId(rs.getInt("stellenid"));
 				stellenbeschreibung.setBezeichnug(rs.getString("bezeichnung"));
-				stellenbeschreibung.setBeschreibungstext(rs.getString("beschreibungstext"));
+				stellenbeschreibung.setBeschreibungstext(rs.getString("beschreibung"));
 				stellenbeschreibung.setFrist(rs.getDate("frist"));
 				result.add(stellenbeschreibung);
 				return result;

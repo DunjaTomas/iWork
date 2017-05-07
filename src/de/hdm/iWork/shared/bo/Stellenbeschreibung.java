@@ -13,10 +13,10 @@ public class Stellenbeschreibung extends BusinessObject {
 	private static final long serialVersionUID = 1L;
 
 	//Attribute einer Stellenbeschreibung
-	private int stellenId;
-	private String bezeichnung;
-	private String beschreibungstext;
-	private Date frist;
+	private int stellenId = 0;
+	private String bezeichnung = null;
+	private String beschreibungstext = null;
+	private Date frist = null;
 
 	//No-Argument Constructor
 	public Stellenbeschreibung() {
