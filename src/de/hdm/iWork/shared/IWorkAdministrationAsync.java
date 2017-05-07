@@ -1,5 +1,20 @@
 package de.hdm.iWork.shared;
 
-public class IWorkAdministrationAsync {
+import java.util.Vector;
+
+import com.google.gwt.user.client.rpc.*;
+
+
+import de.hdm.iWork.shared.bo.*;
+
+
+public interface IWorkAdministrationAsync {
+	
+	void init(AsyncCallback<Void> callback);
+	
+	void getAllEigenschaften(AsyncCallback<Vector<Eigenschaft>> callback);
+	
+	
+	
 
 }

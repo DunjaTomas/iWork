@@ -1,6 +1,8 @@
 package de.hdm.iWork.server.db;
 
 import java.sql.*;
+import java.util.Vector;
+
 import de.hdm.iWork.shared.bo.*;
 
 public class EigenschaftMapper {
@@ -100,7 +102,7 @@ public class EigenschaftMapper {
 	}
 	
 	public Eigenschaft getEigenschaftbyId(int eigenschaftId){
-		java.sql.Connection con = DBConnection.connection();
+		Connection con = DBConnection.connection();
 		
 		try{
 			Statement stmt = con.createStatement();
@@ -110,7 +112,7 @@ public class EigenschaftMapper {
 			
 			if(rs.next()){
 				Eigenschaft eigenschaft = new Eigenschaft();
-				eigenschaft.setEigenschaftId(rs.getInt("eigenschaftId"));
+				eigenschaft.setEigenschaftId(rs.getInt("eigenschaftid"));
 				eigenschaft.setBezeichnung(rs.getString("bezeichnung"));
 				return eigenschaft;
 				
@@ -124,4 +126,34 @@ public class EigenschaftMapper {
 		
 		return null;
 	}
-}
+	
+	public Vector<Eigenschaft> getAllEigenschaften(){
+		Connection con = DBConnection.connection();
+		
+		Vector<Eigenschaft> result = new Vector<Eigenschaft>();
+		
+		try{
+			
+			Statement stmt = con.createStatement();
+			
+			ResultSet rs = stmt.executeQuery("SELECT * FROM eigenschaft");
+			
+			while (rs.next()){
+				Eigenschaft eigenschaft = new Eigenschaft();
+				
+				eigenschaft.setId(rs.getInt("eigenschaftid"));
+				eigenschaft.setBezeichnung(rs.getString("bezeichnung"));
+				
+				result.add(eigenschaft);
+			}
+			
+			
+		}catch(SQLException e2){
+			
+			e2.printStackTrace();
+			return null;
+		}
+		
+		return result;
+	}
+	}
