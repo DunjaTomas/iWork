@@ -10,6 +10,92 @@ h1 {
   text-align: center;
 }
 
+.iWork-headline {
+	font-size: 12pt;
+	font-weight: bold;
+	color: #777777;
+	margin: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.iWork-simpletext {
+	font-size: 100%;
+	font-weight: normal;
+	padding: 3px;
+}
+
+.iWork-label {
+	font-size: 120%;
+	font-weight: bold;
+	font-style: italic;
+	color: gray;
+	padding-bottom: 0.5em;
+}
+
+.iWork-textfield {
+	font-size: 100%;
+	font-weight: normal;
+	padding: 3px;
+	width: 15em;
+}
+
+.iWork-menubutton {
+	font-size: 100%;
+	font-weight: bold;
+	width: 15em;
+	margin-bottom: 1em;
+}
+
+.iWork-button {
+	font-size: 100%;
+	font-weight: bold;
+}
+
+div#TopLevelFrame {
+	width: 800px;
+	min-width: 300px;
+	border: 1px solid silver;
+	margin: 0 auto;      /* standardkonforme horizontale Zentrierung */
+ }
+ 
+ div#Details {
+	margin-left: 20em;
+	min-height: 400px;
+	max-height: 500px;
+	padding: 1em 1em;
+	border-top: 1px dashed silver;
+	border-left: 1px dashed silver;
+	overflow:scroll;
+}
+
+div#Navigator {
+	float: left;
+	width: 18em;
+	min-height: 300px;
+	padding: 1em 1em;
+	border-top: 1px dashed silver;
+}
+
+div#Header {
+	margin: 0 auto;      /* standardkonforme horizontale Zentrierung */
+	/* border: 1px dashed silver; */
+}
+
+div#Trailer {
+	clear: both;
+	padding: 10px 0;
+	margin: 0 auto;      /* standardkonforme horizontale Zentrierung */
+	border-top: 1px dashed silver;
+	font-size: 80%;
+	text-align: center;
+}
+
+/**
+Ab hier kann eventuell alles gelöscht werden, wenn es nicht Verwendung findet
+*/
+
 .sendButton {
   display: block;
   font-size: 16pt;
