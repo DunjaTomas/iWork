@@ -30,6 +30,7 @@ public class ShowProfil extends ShowSuper{
 		
 		iworkVerwaltung.getAllInhalteFor(1, new InhalteCallback(this));
 		
+		this.append("test");
 		
 		
 		
@@ -54,12 +55,14 @@ public class ShowProfil extends ShowSuper{
 
 		@Override
 		public void onSuccess(Vector<Inhalt> result) {
-		      if (result != null) {
-		          IWorkAdministrationAsync iworkVerwaltung = ClientsideSetting.getIWorkAdministration();
-
-		          for (Inhalt i : result) {
-		            this.showsuper.append("Eigenschaften des Benutzers "
-		                + i.getId() + " " + i.getAngabe());
+			if (result != null) {
+				for (Inhalt i : result) {
+					if (i != null){
+						this.showsuper.append("test");
+							
+					}
+		            this.showsuper.append(i.getId() + " " + i.getAngabe());
+		            
 
 		          }
 		        }
