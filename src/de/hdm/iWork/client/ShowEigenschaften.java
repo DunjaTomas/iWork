@@ -1,5 +1,5 @@
 package de.hdm.iWork.client;
 
-public class ShowEigenschften {
+public class ShowEigenschaften {
 
 }

@@ -1,5 +1,7 @@
 package de.hdm.iWork.client;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -25,11 +27,10 @@ public class CreateEigenschaft extends VerticalPanel {
 	private Button abbrechenButton = new Button("Abbrechen");
 	
 	private CellTable<Eigenschaft> table = new CellTable<Eigenschaft>();
-	// Create a data provider.
-    ListDataProvider<Eigenschaft> dataProvider = new ListDataProvider<Eigenschaft>();
+	List<Eigenschaft> list = new ArrayList<Eigenschaft>();
 	
 	
-	
+
 	
 	public CreateEigenschaft(){
 		run();
@@ -40,34 +41,37 @@ public class CreateEigenschaft extends VerticalPanel {
 		this.add(verPanel);
 		this.add(horPanel);
 		
+		
+		getBezeichnung();
+		
 		TextColumn<Eigenschaft> bezeichnungColumn = new TextColumn<Eigenschaft>(){
 			
 			@Override
 			public String getValue(Eigenschaft eigenschaft) {
-				return eigenschaft.getBezeichnung();
+			return eigenschaft.getBezeichnung();
 			}
-			
+		
 		};
 		
+	
 		table.addColumn(bezeichnungColumn, "Bezeichnung");
-		
-		
-	    
-	 // Connect the table to the data provider.
-	    dataProvider.addDataDisplay(table);
-	    
-	    getBezeichnung();
-	    
+		// Push the data into the widget.
+		table.setRowData(0,list);
+	   
 	    verPanel.add(ueberschrift);
 	    verPanel.add(table);
-	    horPanel.add(verPanel);
+	    //horPanel.add(verPanel);
 	    
-	    RootPanel.get("Details").add(horPanel);
+	    
 		
 		
 	}
 	
 	public void getBezeichnung(){
+			
+		
+		
+			
 		
 		ClientsideSetting.getIWorkAdministration().getAllEigenschaften(new AsyncCallback<Vector<Eigenschaft>>(){
 
@@ -80,17 +84,18 @@ public class CreateEigenschaft extends VerticalPanel {
 			@Override
 			public void onSuccess(Vector<Eigenschaft> result) {
 				
-				List<Eigenschaft> list = dataProvider.getList();
-			    for (Eigenschaft eigenschaft : result) {
-			      list.add(eigenschaft);
-			    }
-				
+			
+				list.addAll(result);
+		
 			}
 
 		
 			
 			
 		});
+		
+		
+	    
 	}
 	
 	

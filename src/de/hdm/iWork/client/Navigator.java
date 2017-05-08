@@ -64,9 +64,24 @@ public void run(){
 		
 	});
 	
+	Button profilErstellenButton = new Button("Profil erstellen");
+	profilErstellenButton.setStylePrimaryName("iWork-menubutton");
+	
+	profilErstellenButton.addClickHandler(new ClickHandler () {
+
+		@Override
+		public void onClick(ClickEvent event) {
+			CreateEigenschaft createEigenschaften = new CreateEigenschaft();
+			RootPanel.get("Details").clear();
+	        RootPanel.get("Details").add(createEigenschaften);
+		}
+		
+	});
+	
 	navPanel.add(profilAnzeigenButton);
 	navPanel.add(stellenbeschreibungenAnzeigenButton);
 	navPanel.add(bewerbungenAnzeigenButton);
+	navPanel.add(profilErstellenButton);
 	
 	
 	
