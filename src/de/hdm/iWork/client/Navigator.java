@@ -4,10 +4,10 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class Navigator  extends HorizontalPanel {
+public class Navigator extends HorizontalPanel {
 	
 	VerticalPanel navPanel = new VerticalPanel();
 	
@@ -31,7 +31,9 @@ public void run(){
 		@Override
 		public void onClick(ClickEvent event) {
 			// TODO Auto-generated method stub
-			
+			ShowSuper showsuper = new ShowProfil();
+			RootPanel.get("Details").clear();
+	        RootPanel.get("Details").add(showsuper);
 		}
 			
 	});
