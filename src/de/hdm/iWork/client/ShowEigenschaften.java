@@ -7,6 +7,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import de.hdm.iWork.shared.IWorkAdministrationAsync;
 import de.hdm.iWork.shared.bo.Inhalt;
 
+
 public class ShowEigenschaften extends ShowSuper {
 
 	@Override
