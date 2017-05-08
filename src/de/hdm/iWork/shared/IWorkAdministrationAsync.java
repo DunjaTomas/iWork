@@ -13,6 +13,8 @@ public interface IWorkAdministrationAsync {
 	void init(AsyncCallback<Void> callback);
 	
 	void getAllEigenschaften(AsyncCallback<Vector<Eigenschaft>> callback);
+
+	void getAllInhalteFor(int i,AsyncCallback<Vector<Inhalt>> callback);
 	
 	
 	

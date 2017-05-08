@@ -12,6 +12,7 @@ import de.hdm.iWork.shared.bo.*;
 public class IWorkAdministrationImpl extends RemoteServiceServlet implements IWorkAdministration {
 	
 	private EigenschaftMapper eigenschaftMapper = null;
+	private InhaltMapper inhaltMapper = null;
 	
 	
 	public IWorkAdministrationImpl() throws IllegalArgumentException{
@@ -32,6 +33,8 @@ public class IWorkAdministrationImpl extends RemoteServiceServlet implements IWo
 	
 	
 	
-	
+	public Vector<Inhalt> getAllInhalteFor(int i) throws IllegalArgumentException{
+		return this.inhaltMapper.getAllInhalteFor(i);
+	}
 
 }

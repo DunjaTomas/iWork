@@ -17,5 +17,7 @@ public interface IWorkAdministration extends RemoteService {
 	
 	public Vector<Eigenschaft> getAllEigenschaften() throws IllegalArgumentException;
 	
+	public Vector<Inhalt> getAllInhalteFor(int i) throws IllegalArgumentException;
+	
 	
 }

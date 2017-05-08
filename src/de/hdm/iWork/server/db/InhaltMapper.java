@@ -128,4 +128,13 @@ public class InhaltMapper {
 		
 		return null;
 	}
+
+	/**
+	 * NOCH ZU ERLEDIGEN. SOLL ALLE INHALTE für ein Profil zurückgeben
+	 * @return
+	 */
+	public Vector<Inhalt> getAllInhalteFor(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
