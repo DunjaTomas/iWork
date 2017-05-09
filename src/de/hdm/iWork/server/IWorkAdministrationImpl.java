@@ -9,6 +9,7 @@ import de.hdm.iWork.server.db.InhaltMapper;
 import de.hdm.iWork.shared.IWorkAdministration;
 import de.hdm.iWork.shared.bo.*;
 
+@SuppressWarnings("serial")
 public class IWorkAdministrationImpl extends RemoteServiceServlet implements IWorkAdministration {
 	
 	private EigenschaftMapper eigenschaftMapper = null;

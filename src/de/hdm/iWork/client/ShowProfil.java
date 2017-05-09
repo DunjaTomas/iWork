@@ -3,6 +3,7 @@ package de.hdm.iWork.client;
 import java.util.Vector;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.RootPanel;
 
 import de.hdm.iWork.shared.IWorkAdministrationAsync;
 import de.hdm.iWork.shared.bo.Inhalt;
@@ -24,52 +25,11 @@ public class ShowProfil extends ShowSuper{
 	@Override
 	protected void run() {
 		
-		this.append("Hier finden Sie alle angegeben Eigenschaften");
-		
-		IWorkAdministrationAsync iworkVerwaltung = ClientsideSetting.getIWorkAdministration();
-		
-		iworkVerwaltung.getAllInhalteFor(1, new InhalteCallback(this));
-		
-		
+		ShowSuper showsuper = new ShowEigenschaften();
+        RootPanel.get("Details").add(showsuper);
 		
 		
 	}
-
-	class InhalteCallback implements AsyncCallback<Vector<Inhalt>> {
-		
-		private ShowSuper showsuper = null;
-		
-		
-		public InhalteCallback (ShowSuper s){
-			this.showsuper = s;
-		}
-		
-			
-		@Override
-		public void onFailure(Throwable caught) {
-			
-			 this.showsuper.append("Fehler bei der Abfrage " + caught.getMessage());
-			
-		}
-
-		@Override
-		public void onSuccess(Vector<Inhalt> result) {
-		      if (result != null) {
-		          IWorkAdministrationAsync iworkVerwaltung = ClientsideSetting.getIWorkAdministration();
-
-		          for (Inhalt i : result) {
-		            this.showsuper.append("Eigenschaften des Benutzers "
-		                + i.getId() + " " + i.getAngabe());
-
-		          }
-		        }
-			
-		}
-		
-	}
-
-	
-
 
 
 }

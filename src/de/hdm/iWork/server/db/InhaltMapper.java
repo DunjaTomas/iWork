@@ -134,7 +134,34 @@ public class InhaltMapper {
 	 * @return
 	 */
 	public Vector<Inhalt> getAllInhalteFor(int i) {
-		// TODO Auto-generated method stub
+		Connection con = DBConnection.connection();
+		
+		/*
+		 * Ergebnis Vector
+		 */
+		Vector<Inhalt> result = new Vector<Inhalt>();
+		
+		try{
+			
+			Statement stmt = con.createStatement();
+			
+			ResultSet rs = stmt.executeQuery("SELECT * FROM inhalt "
+					+ " WHERE profilId=" + 1);
+			
+		if(rs.next()){
+			Inhalt inhalt = new Inhalt();
+			inhalt.setAngabe(rs.getString("angabe"));
+			result.add(inhalt);
+						
+		  }
+		}
+		
+		catch(SQLException e2){
+			e2.printStackTrace();
+			return null;
+		}
+		
 		return null;
+
 	}
 }
