@@ -20,7 +20,7 @@ public class ShowEigenschaften extends ShowSuper {
 		
 		this.append("Aufrufen aller angegeben Eigenschaften");
 		
-		IWorkAdministrationAsync iworkVerwaltung = ClientsideSetting.getIWorkAdministration();
+		IWorkAdministrationAsync iworkVerwaltung = ClientsideSettings.getIWorkAdministration();
 
 		iworkVerwaltung.getAllInhalteFor(1, new InhalteCallback(this));
 		

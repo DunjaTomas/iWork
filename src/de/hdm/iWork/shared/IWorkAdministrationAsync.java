@@ -14,5 +14,8 @@ public interface IWorkAdministrationAsync {
 
 	void getAllInhalteFor(int i, AsyncCallback<Vector<Inhalt>> callback);
 
-	void getAllStellenausschreibungen(AsyncCallback<Vector<Stellenausschreibung>> callback);
+	void createStellenausschreibung(int stellenId, String bezeichnung, String beschreibung, AsyncCallback<Stellenausschreibung> callback);
+
+	void getStellenanzeige(int stellenid, AsyncCallback<Stellenausschreibung> callback);
+
 }

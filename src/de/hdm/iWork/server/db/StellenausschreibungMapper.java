@@ -71,10 +71,11 @@ public class StellenausschreibungMapper {
 		try {
 			Statement stmt = con.createStatement();
 
-			stmt.executeUpdate("UPDATE stellenausschreibung " + "SET bezeichnung\""
-					+ stellenausschreibung.getBezeichnung() + "\", " + " beschreibung=\""
-					+ stellenausschreibung.getBeschreibungstext() + "\", " + " frist=\"" + stellenausschreibung.getFrist()
-					+ "\" " + "WHERE stellenid=" + stellenausschreibung.getStellenId());
+			stmt.executeUpdate(
+					"UPDATE stellenausschreibung " + "SET bezeichnung\"" + stellenausschreibung.getBezeichnung()
+							+ "\", " + " beschreibung=\"" + stellenausschreibung.getBeschreibungstext() + "\", "
+							+ " frist=\"" + stellenausschreibung.getFrist() + "\" " + "WHERE stellenid="
+							+ stellenausschreibung.getStellenId());
 		}
 
 		catch (SQLException e2) {
@@ -179,6 +180,95 @@ public class StellenausschreibungMapper {
 				stellenausschreibung.setFrist(rs.getDate("frist"));
 				result.add(stellenausschreibung);
 				return result;
+			}
+		} catch (SQLException e2) {
+			e2.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+
+	public Stellenausschreibung insertTest(Stellenausschreibung s, int stellenId) {
+
+		// String sql;
+		// Statement stm=null;
+		// ResultSet rs;
+		// ResultSetMetaData rsmd;
+		// int felder;
+
+		// System.out.println("Methode Insert betreten");
+		Connection con = DBConnection.connection();
+
+		// if (con == null) {
+		// System.out.println("FEHLER");
+		// }
+
+		try {
+			Statement stm = con.createStatement();
+
+			ResultSet rs = stm.executeQuery("SELECT MAX(stellenid) AS maxstellenid " + "FROM test");
+
+			if (rs.next()) {
+
+				s.setStellenId(rs.getInt("maxstellenid") + 1);
+
+				stm = con.createStatement();
+				stm.executeUpdate("INSERT INTO test (stellenid, bezeichnung, beschreibung) VALUES(" + s.getStellenId()
+						+ ",'" + s.getBezeichnung() + "','" + s.getBeschreibungstext() + "')");
+			}
+
+			/*
+			 * Einfuegeoperation
+			 */
+			// sql = "SELECT * FROM test";
+			//
+			// rs = stm.executeQuery(sql);
+			// rsmd = rs.getMetaData();
+			//
+			// felder = rsmd.getColumnCount();
+			//
+			// while (rs.next()) {
+			// for (int i = 1; i <= felder; i++) {
+			// System.out.print(rs.getString(i) + ';');
+			// }
+			// System.out.println();
+			// }
+			//
+			// stm.close();
+			// con.close();
+
+			// stmt.executeUpdate("INSERT INTO test (bezeichnung,beschreibung) "
+			// + "VALUES('" + s.getBezeichnung() + "','"
+			// + s.getBeschreibungstext() + "')");
+
+		}
+
+		catch (SQLException e2) {
+			e2.printStackTrace();
+		}
+		return s;
+	}
+
+	public Stellenausschreibung getStellenTest(int stellenid) {
+		Connection con = DBConnection.connection();
+
+		try {
+
+			Statement stmt = con.createStatement();
+			//
+			ResultSet rs = stmt.executeQuery(
+					"SELECT stellenid, bezeichnung, beschreibung FROM test WHERE stellenid= " + stellenid);
+
+			// ResultSet rs = stmt.executeQuery("SELECT * FROM test " + "WHERE
+			// stellenid= " + stellenid);
+			//
+			if (rs.next()) {
+				Stellenausschreibung s = new Stellenausschreibung();
+				s.setStellenId(rs.getInt("stellenid"));
+				s.setBezeichnug("bezeichnung");
+				s.setBeschreibungstext("beschreibung");
+
+				return s;
 			}
 		} catch (SQLException e2) {
 			e2.printStackTrace();

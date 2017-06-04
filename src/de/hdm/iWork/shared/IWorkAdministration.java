@@ -19,6 +19,8 @@ public interface IWorkAdministration extends RemoteService {
 
 	public Vector<Inhalt> getAllInhalteFor(int i) throws IllegalArgumentException;
 
-	public Vector<Stellenausschreibung> getAllStellenausschreibungen() throws IllegalArgumentException;
+	public Stellenausschreibung createStellenausschreibung(int stellenId, String bezeichnung, String beschreibung) throws IllegalArgumentException;
+
+	public Stellenausschreibung getStellenanzeige(int stellenid) throws IllegalArgumentException;
 
 }

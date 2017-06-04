@@ -50,19 +50,6 @@ public class Navigator extends HorizontalPanel {
 
 		});
 
-		Button stellenausschreibungenAnzeigenButton = new Button("Jobs");
-		stellenausschreibungenAnzeigenButton.setStylePrimaryName("iWork-menubutton");
-
-		stellenausschreibungenAnzeigenButton.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-
 		Button bewerbungenAnzeigenButton = new Button("Meine Bewerbungen");
 		bewerbungenAnzeigenButton.setStylePrimaryName("iWork-menubutton");
 
@@ -78,9 +65,7 @@ public class Navigator extends HorizontalPanel {
 
 		navPanel.add(profilAnzeigenButton);
 		navPanel.add(stellenausschreibungenErstellenButton);
-		navPanel.add(stellenausschreibungenAnzeigenButton);
 		navPanel.add(bewerbungenAnzeigenButton);
-
 	}
 
 }

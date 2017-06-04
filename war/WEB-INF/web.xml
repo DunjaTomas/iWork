@@ -2,18 +2,18 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
               http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5"
+         version="2.8.1"
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
   <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>de.hdm.iWork.server.GreetingServiceImpl</servlet-class>
+    <servlet-name>iworkServlet</servlet-name>
+    <servlet-class>de.hdm.iWork.server.IWorkAdministrationImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/iwork/greet</url-pattern>
+    <servlet-name>iworkServlet</servlet-name>
+    <url-pattern>/iwork</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->

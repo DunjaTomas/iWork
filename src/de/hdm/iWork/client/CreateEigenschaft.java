@@ -69,7 +69,7 @@ public class CreateEigenschaft extends VerticalPanel {
 	
 	public void getBezeichnung(){
 		
-		ClientsideSetting.getIWorkAdministration().getAllEigenschaften(new AsyncCallback<Vector<Eigenschaft>>(){
+		ClientsideSettings.getIWorkAdministration().getAllEigenschaften(new AsyncCallback<Vector<Eigenschaft>>(){
 
 			@Override
 			public void onFailure(Throwable caught) {

@@ -2,6 +2,7 @@ package de.hdm.iWork.server;
 
 import java.util.Vector;
 
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import de.hdm.iWork.server.db.EigenschaftMapper;
@@ -36,8 +37,19 @@ public class IWorkAdministrationImpl extends RemoteServiceServlet implements IWo
 		return this.inhaltMapper.getAllInhalteFor(i);
 	}
 
-	public Vector<Stellenausschreibung> getAllStellenausschreibungen() throws IllegalArgumentException {
-		return this.stellenMapper.getAllStellenbeschreibungen();
+	public Stellenausschreibung createStellenausschreibung(int stellenId, String bezeichnung, String beschreibung) throws IllegalArgumentException {
+
+		Stellenausschreibung s = new Stellenausschreibung();
+		s.setBezeichnug(bezeichnung);
+		s.setBeschreibungstext(beschreibung);
+
+		return this.stellenMapper.insertTest(s, stellenId);
+	}
+
+	public Stellenausschreibung getStellenanzeige(int stellenid)
+			throws IllegalArgumentException {
+
+		return this.stellenMapper.getStellenTest(stellenid);
 	}
 
 }
