@@ -16,6 +16,16 @@
     <url-pattern>/iwork</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+      	<servlet-name>iworkVerwaltungServlet</servlet-name>
+      	<servlet-class>de.hdm.iWork.server.IWorkAdministrationImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+		<servlet-name>iworkVerwaltungServlet</servlet-name>
+		<url-pattern>/iWork/iworkadministration</url-pattern>
+  </servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>IWork.html</welcome-file>
